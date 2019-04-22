@@ -21,6 +21,7 @@ class Movie(models.Model):
     website = models.URLField(blank=True)
 
     director = models.ForeignKey(to='Person', on_delete=models.SET_NULL, related_name='directed', null=True, blank=True)
+    writers = models.ManyToManyField(to='Person', related_name='writing_credits', blank=True)
 
     class Meta:
         ordering = ('-year', 'title')
